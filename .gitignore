@@ -1,8 +1,10 @@
 data/corpus.txt
-models/MyModel/
+data/EN/DBLP.txt
+models/DBLP/
 Python/
 results/
 tmp/
+bin/
 
 *.orig
 *.pyc

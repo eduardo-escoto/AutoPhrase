@@ -1,5 +1,10 @@
+export CC=/opt/homebrew/opt/llvm/bin/clang
+export CXX="$CC++"
+export LDFLAGS="$LDFLAGS -L/opt/homebrew/opt/libomp/lib"
+export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/opt/libomp/include"
+
 if [ "$(uname)" == "Darwin" ]; then
-    make all CXX=g++-6 | grep -v "Nothing to be done for"
+    make all CXX=$CXX | grep -v "Nothing to be done for"
     cp tools/treetagger/bin/tree-tagger-mac tools/treetagger/bin/tree-tagger
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     make all CXX=g++ | grep -v "Nothing to be done for"

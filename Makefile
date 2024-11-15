@@ -1,5 +1,5 @@
-CXX = g++
-CFLAGS = -std=c++11 -Wall -O3 -msse2  -fopenmp  -I..
+# CXX = g++
+CFLAGS = -I/opt/homebrew/opt/llvm/includ -I/opt/homebrew/opt/libomp/include -std=c++11 -Wall -O3 -Xclang -fopenmp
 
 BIN = ./bin/segphrase_train ./bin/segphrase_segment
 .PHONY: clean all
@@ -12,7 +12,7 @@ all: ./bin $(BIN)
 ./bin:
 	mkdir -p bin
 
-LDFLAGS= -pthread -lm -Wno-unused-result -Wno-sign-compare -Wno-unused-variable -Wno-parentheses -Wno-format
+LDFLAGS= -L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/libomp/lib -lomp -pthread -lm -Wno-unused-result -Wno-sign-compare -Wno-unused-variable -Wno-parentheses -Wno-format
 $(BIN) :
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(filter %.cpp %.o %.c, $^)
 $(OBJ) :

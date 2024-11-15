@@ -46,7 +46,7 @@ reset=`tput sgr0`
 
 if [ $COMPILE -eq 1 ]; then
     echo ${green}===Compilation===${reset}
-    bash compile.sh
+    bash compile.sh 
 fi
 
 mkdir -p tmp
