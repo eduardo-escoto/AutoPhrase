@@ -8,3 +8,4 @@ bin/
 
 *.orig
 *.pyc
+.DS_STORE
